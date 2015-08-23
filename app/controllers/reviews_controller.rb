@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to place_path(@review.place), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
-        redirect_to place_path(@reveiw.place), notice: "Something went wrong"
+        format.html {redirect_to place_path(@reveiw.place), notice: "Something went wrong" }
       end
     end
   end
@@ -45,6 +45,6 @@ class ReviewsController < ApplicationController
   end
   
   def review_params
-    params.require(:review).permit(:content, :place_id)
+    params.require(:review).permit(:content, :place_id, :score)
   end 
 end
