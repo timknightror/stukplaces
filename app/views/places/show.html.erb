@@ -1,6 +1,7 @@
 <div class="rows">
   <div class="col-md-3">
     <h3><%= @place.name %></h3>
+    <div class="average"></div>
     <p>
       <strong> Address</strong>
       <%= @place.address %></p>
@@ -53,5 +54,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
     readOnly: true
   });
   <% end %>
+  
+  
+  $(".average").raty({
+    starOn: "<%= image_path('star-on.png') %>",
+    starOff: "<%= image_path('star-off.png') %>",
+    score: "<%= @place.total_average_rating %>",
+    readOnly: true
+  });
   
     </script>
